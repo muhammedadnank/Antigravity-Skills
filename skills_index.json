@@ -564,9 +564,9 @@
     "description": "Expert guidance for building modern Android UIs with Jetpack Compose, covering state management, navigation, performance, and Material Design 3."
   },
   {
-    "id": "android_ui_verification",
-    "path": "skills/android_ui_verification",
-    "name": "android_ui_verification",
+    "id": "android-ui-verification",
+    "path": "skills/android-ui-verification",
+    "name": "android-ui-verification",
     "description": "Automated end-to-end UI testing and verification on an Android Emulator using ADB."
   },
   {
@@ -2883,7 +2883,7 @@
     "id": "cinematic-scrub-landing",
     "path": "skills/cinematic-scrub-landing",
     "name": "cinematic-scrub-landing",
-    "description": "Build a premium cinematic landing page with mouse-scrub video hero and brand-driven narrative-arc sections. Use whenever the user provides a hero video plus a product / subject / brand and wants a landing page, promo site, product showcase, marketing page, or storytelling site. Works for any language (RTL or LTR — Hebrew, English, Arabic, Spanish, French, Japanese, etc.) and any subject (food, tech, animals, fashion, services, SaaS, wildlife campaigns, music releases, books, real estate). The signature effect is mouse-driven video scrubbing — the hero video lives across the entire page as a fixed backdrop, and moving the mouse left-right scrubs the video timeline so the subject responds to the cursor. Below the hero, 4-5 fully-opaque sections each carry their own brand identity (color, typography emphasis, layout pattern) and walk the viewer through a narrative arc (e.g. longing → joy → nostalgia → contemplation → action). Triggers on phra"
+    "description": "Build a premium cinematic landing page with mouse-scrub video hero and brand-driven narrative-arc sections. Use whenever the user provides a hero video plus a product / subject / brand and wants a landing page, promo site, product showcase, marketing page, or storytelling site. Works for any language and any subject. The signature effect is mouse-driven video scrubbing \\u2014 the hero video lives across the entire page as a fixed backdrop, and moving the mouse left-right scrubs the video timeline so the subject responds to the cursor. Below the hero, 4-5 fully-opaque sections each carry their own brand identity (color, typography emphasis, layout pattern) and walk the viewer through a narrative arc (e.g. longing -> joy -> nostalgia -> contemplation -> action). Do NOT use for parallax frame-scrub landings where the page itself doesn't scroll (use parallax-landing-page instead) or for video editing / captioning workflows (use video-edit)."
   },
   {
     "id": "circleci-automation",
@@ -3225,7 +3225,7 @@
     "id": "code-to-design",
     "path": "skills/code-to-design",
     "name": "code-to-design",
-    "description": ">-"
+    "description": "Convert frontend code (Vite, React, etc.) to a Stitch Design by chaining static HTML extraction, design system extraction, and file upload. **ALWAYS** use this skill when the user's intent is to move existing web apps or React components into Stitch (e.g., requests to \"save\", \"migrate\", or \"upload\"). You must use this skill even for simple \"save\" operations, as it is the only way to ensure the design system is extracted and assets are properly linked."
   },
   {
     "id": "code-tour",
@@ -3358,12 +3358,6 @@
     "path": "skills/complexity-cuts",
     "name": "complexity-cuts",
     "description": "Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-stop. For new code use lemmaly; for math-level wins escalate to mathguard."
-  },
-  {
-    "id": "composition-patterns",
-    "path": "skills/composition-patterns",
-    "name": "composition-patterns",
-    "description": "React composition patterns that scale. Use when refactoring components with"
   },
   {
     "id": "comprehensive-review-full-review",
@@ -5031,13 +5025,13 @@
     "id": "extract-design-md",
     "path": "skills/extract-design-md",
     "name": "extract-design-md",
-    "description": ">-"
+    "description": "Extract a comprehensive design system (DESIGN.md) directly from frontend source code \\u2014 React, Vue, Svelte, Angular, plain HTML/CSS, or any web framework. Analyzes component files, stylesheets, Tailwind configs, theme definitions, and design tokens to produce a rich, Stitch-compatible design system document. Use this skill whenever the user wants to reverse-engineer a design system from an existing codebase, audit the visual language of a project, extract design tokens from source files, or understand the styling patterns in a frontend repo \\u2014 even if they just say \\\"what does this app look like?\\\" or \\\"pull out the design from this code.\\\""
   },
   {
     "id": "extract-static-html",
     "path": "skills/extract-static-html",
     "name": "extract-static-html",
-    "description": ">-"
+    "description": "Extract self-contained static HTML from a built web application or React components by inlining CSS and images. Use this skill whenever you need to capture a specific UI state, share a static version of a page, or prepare assets for Stitch upload, even if the user just asks to 'save the HTML' or 'mock the view'."
   },
   {
     "id": "eyeball",
@@ -5847,7 +5841,7 @@
     "id": "generate-design",
     "path": "skills/generate-design",
     "name": "generate-design",
-    "description": ">-"
+    "description": "Generate new screens from text prompts or images, edit existing screens with prompts and design system tokens, and generate design variants using Stitch MCP. Includes prompt enhancement pipeline, design mappings, professional UI/UX terminology, design tokens and theme system capabilities."
   },
   {
     "id": "generate-image",
@@ -7815,7 +7809,7 @@
     "id": "manage-design-system",
     "path": "skills/manage-design-system",
     "name": "manage-design-system",
-    "description": ">-"
+    "description": "Manage design systems in Stitch using MCP tools. Includes retrieval of assets, creating/updating design systems in Stitch, and applying them to screens."
   },
   {
     "id": "manage-skills",
@@ -9900,16 +9894,16 @@
     "description": "Guides Qdrant monitoring setup including Prometheus scraping, health probes, Hybrid Cloud metrics, alerting, and log centralization. Use when someone asks 'how to set up monitoring', 'Prometheus config', 'Grafana dashboard', 'health check endpoints', 'how to scrape Hybrid Cloud', 'what alerts to set', 'how to centralize logs', or 'audit logging'."
   },
   {
+    "id": "qdrant-performance-indexing-optimization",
+    "path": "skills/qdrant-performance-indexing-optimization",
+    "name": "qdrant-performance-indexing-optimization",
+    "description": "Diagnoses and fixes slow Qdrant indexing and data ingestion. Use when someone reports 'uploads are slow', 'indexing takes forever', 'optimizer is stuck', 'HNSW build time too long', or 'data uploaded but search is bad'. Also use when optimizer status shows errors, segments won't merge, or indexing threshold questions arise."
+  },
+  {
     "id": "qdrant-performance-optimization",
     "path": "skills/qdrant-performance-optimization",
     "name": "qdrant-performance-optimization",
     "description": "Different techniques to optimize the performance of Qdrant, including indexing strategies, query optimization, and hardware considerations. Use when you want to improve the speed and efficiency of your Qdrant deployment."
-  },
-  {
-    "id": "qdrant-performance-optimization-indexing-performance-optimization",
-    "path": "skills/qdrant-performance-optimization-indexing-performance-optimization",
-    "name": "qdrant-performance-optimization-indexing-performance-optimization",
-    "description": "Diagnoses and fixes slow Qdrant indexing and data ingestion. Use when someone reports 'uploads are slow', 'indexing takes forever', 'optimizer is stuck', 'HNSW build time too long', or 'data uploaded but search is bad'. Also use when optimizer status shows errors, segments won't merge, or indexing threshold questions arise."
   },
   {
     "id": "qdrant-performance-optimization-memory-usage-optimization",
@@ -10074,12 +10068,6 @@
     "description": "Provides the complete, verified grep scan command library for auditing React codebases before a React 18.3.1 or React 19 upgrade. Use this skill whenever running a migration audit - for both the react18-auditor and react19-auditor agents. Contains every grep pattern needed to find deprecated APIs, removed APIs, unsafe lifecycle methods, batching vulnerabilities, test file issues, dependency conflicts, and React 19 specific removals. Always use this skill when writing audit scan commands - do not rely on memory for grep syntax, especially for the multi-line async setState patterns which require context flags."
   },
   {
-    "id": "react-best-practices",
-    "path": "skills/react-best-practices",
-    "name": "react-best-practices",
-    "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements."
-  },
-  {
     "id": "react-component-performance",
     "path": "skills/react-component-performance",
     "name": "react-component-performance",
@@ -10128,12 +10116,6 @@
     "description": "Build mobile apps with React Native and Expo — navigation, platform-specific code, performance, and native modules."
   },
   {
-    "id": "react-native-skills",
-    "path": "skills/react-native-skills",
-    "name": "react-native-skills",
-    "description": "React Native and Expo best practices for building performant mobile apps. Use"
-  },
-  {
     "id": "react-nextjs-development",
     "path": "skills/react-nextjs-development",
     "name": "react-nextjs-development",
@@ -10156,12 +10138,6 @@
     "path": "skills/react-ui-patterns",
     "name": "react-ui-patterns",
     "description": "Modern React UI patterns for loading states, error handling, and data fetching. Use when building UI components, handling async data, or managing UI states."
-  },
-  {
-    "id": "react-view-transitions",
-    "path": "skills/react-view-transitions",
-    "name": "react-view-transitions",
-    "description": "Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element animations, animate enter/exit of components, animate list reorder, implement directional (forward/back) navigation animations, or integrate view transitions in Next.js. Also use when the user mentions view transitions, `startViewTransition`, `ViewTransition`, transition types, or asks about animating between UI states in React without third-party animation libraries."
   },
   {
     "id": "react18-batching-patterns",
@@ -10911,25 +10887,25 @@
     "id": "sendblue-sendblue-api",
     "path": "skills/sendblue-sendblue-api",
     "name": "sendblue-sendblue-api",
-    "description": "Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API — text, media, group messages, send styles, reactions, typing indicators, status callbacks, and inbound webhooks."
+    "description": "Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API \\u2014 text, media, group messages, send styles, reactions, typing indicators, status callbacks, and inbound webhooks."
   },
   {
     "id": "sendblue-sendblue-cli",
     "path": "skills/sendblue-sendblue-cli",
     "name": "sendblue-sendblue-cli",
-    "description": "Send iMessage and SMS from the shell via the @sendblue/cli npm package — outbound sends, contact management, and account setup with no API client or webhook server required."
+    "description": "Send iMessage and SMS from the shell via the @sendblue/cli npm package \\u2014 outbound sends, contact management, and account setup with no API client or webhook server required."
   },
   {
     "id": "sendblue-sendblue-notify",
     "path": "skills/sendblue-sendblue-notify",
     "name": "sendblue-sendblue-notify",
-    "description": "Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire."
+    "description": "Text the user's phone when a long-running task, agent turn, or scheduled job finishes \\u2014 via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire."
   },
   {
     "id": "sendblue-textme",
     "path": "skills/sendblue-textme",
     "name": "sendblue-textme",
-    "description": "Text Claude from your phone — set up the njerschow/textme daemon so inbound iMessages drive a Claude Code session on your laptop, with voice notes, image input, code execution, and a phone-number whitelist."
+    "description": "Text Claude from your phone \\u2014 set up the njerschow/textme daemon so inbound iMessages drive a Claude Code session on your laptop, with voice notes, image input, code execution, and a phone-number whitelist."
   },
   {
     "id": "sendgrid-automation",
@@ -11775,7 +11751,7 @@
     "id": "strip-profile",
     "path": "skills/strip-profile",
     "name": "strip-profile",
-    "description": "|"
+    "description": "'Creates professional investment banking strip profiles (company profiles) for pitch books, deal materials, and client presentations. Generates 1-4 information-dense slides with quadrant layouts, charts, and tables."
   },
   {
     "id": "stripe-automation",
@@ -12693,7 +12669,7 @@
     "id": "upload-to-stitch",
     "path": "skills/upload-to-stitch",
     "name": "upload-to-stitch",
-    "description": ">-"
+    "description": "Upload local assets (images, mockups, extracted HTML) to a Stitch project. ALWAYS use this skill when you need to upload visual assets or full HTML pages to Stitch, particularly when direct MCP tool calls fail or truncate due to base64 token limits."
   },
   {
     "id": "upstash-qstash",
@@ -12858,6 +12834,12 @@
     "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. \"deploy to vercel\", \"set up vercel\", \"add environment variables to vercel\"."
   },
   {
+    "id": "vercel-composition-patterns",
+    "path": "skills/vercel-composition-patterns",
+    "name": "vercel-composition-patterns",
+    "description": "React composition patterns that scale. Use when refactoring components with"
+  },
+  {
     "id": "vercel-deploy",
     "path": "skills/vercel-deploy",
     "name": "vercel-deploy",
@@ -12874,6 +12856,18 @@
     "path": "skills/vercel-optimize",
     "name": "vercel-optimize",
     "description": "Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in verified files and version-aware Vercel/framework docs. Trigger for Vercel bill reduction, slow or expensive routes, caching opportunities, Function Invocations, Build Minutes, Fast Data Transfer, Core Web Vitals, Bot Management, Fluid compute, or cost breakdown requests."
+  },
+  {
+    "id": "vercel-react-best-practices",
+    "path": "skills/vercel-react-best-practices",
+    "name": "vercel-react-best-practices",
+    "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements."
+  },
+  {
+    "id": "vercel-react-native-skills",
+    "path": "skills/vercel-react-native-skills",
+    "name": "vercel-react-native-skills",
+    "description": "React Native and Expo best practices for building performant mobile apps. Use"
   },
   {
     "id": "vercel-react-view-transitions",
@@ -12945,7 +12939,7 @@
     "id": "video-edit",
     "path": "skills/video-edit",
     "name": "video-edit",
-    "description": "Edit any video into a captioned showcase — transcribe (any language, defaults to large-v3), present a transcript_review.txt for the user to fix mishears BEFORE rendering, then build a HyperFrames composition with liquid-glass caption pills, liquid blob background, liquid morph wipes, optional behind-subject text via background removal, and render the final video. Use whenever the user provides a video file and asks to edit it, caption it, add subtitles, fix existing captions, make a reel/promo/captioned tutorial, or \"do the same\" pattern as a prior captioned video. Supports English, Hebrew, and any Whisper-supported language. **Renders both 16:9 (YouTube / horizontal) and 9:16 (TikTok / Instagram Reels / YouTube Shorts) from the SAME 16:9 source** — vertical mode uses a centered footage strip with a blurred backdrop + liquid blobs and a vertical-tuned caption pill, no need to re-shoot. THE PIPELINE PAUSES FOR USER APPROVAL on the transcript before fina"
+    "description": "Edit any video into a captioned showcase. Transcribe, present a review screen for the user to fix mishears, then build a HyperFrames composition with liquid-glass caption pills, background removal, and render the final video. Renders both 16:9 and 9:16 vertical modes from the same source. Pauses for user approval on the transcript before final render. Pairs with hyperframes, hyperframes-cli, and yuv-design-system."
   },
   {
     "id": "video-to-landing-page",
@@ -13593,13 +13587,13 @@
     "id": "yuv-pilot",
     "path": "skills/yuv-pilot",
     "name": "yuv-pilot",
-    "description": "Top-of-pyramid orchestrator for Yuval Avidani's YUV.AI brand work. Apply when (a) the user wants YUV.AI output and the medium is ambiguous or multi-medium, (b) the user is planning a launch or cross-channel campaign for YUV.AI, or (c) explicitly invokes /yuv-pilot or asks \"what should I build for YUV.AI / my brand\". Triggers: \"for YUV.AI\", \"for my brand\", \"YUV.AI launch\", \"ship something for me\", \"orchestrate\", \"cross-channel\", \"multi-platform for me\", \"yuv-pilot\", Hebrew השקה, מולטי-פלטפורמה ל-יובל. Does NOT do the work — it identifies the right downstream YUV.AI skills (yuv-design-system across 3 modes, yuv-decks for slides, yuv-viral-video for short MP4s, hyperframes for HTML→MP4, nano-banana for in-brand imagery, gsap for animation), explains the composition, hands off. Does NOT apply to non-YUV.AI requests. When a request is clearly single-medium (just a deck, just a viral short), the specific skill wins — yuv-pilot is the front door for ambiguous"
+    "description": "\"Top-of-pyramid orchestrator for Yuval Avidani's YUV.AI brand work. Apply when (a) the user wants YUV.AI output and the medium is ambiguous or multi-medium, (b) the user is planning a launch or cross-channel campaign for YUV.AI, or (c) explicitly invokes /yuv-pilot or asks \\\"what should I build for YUV.AI / my brand\\\". Triggers: \\\"for YUV.AI\\\", \\\"for my brand\\\", \\\"YUV.AI launch\\\", \\\"ship something for me\\\", \\\"orchestrate\\\", \\\"cross-channel\\\", \\\"multi-platform for me\\\", \\\"yuv-pilot\\\", Hebrew \\u05D4\\u05E9\\u05E7\\u05D4, \\u05DE\\u05D5\\u05DC\\u05D8\\u05D9-\\u05E4\\u05DC\\u05D8\\u05E4\\u05D5\\u05E8\\u05DE\\u05D4 \\u05DC-\\u05D9\\u05D5\\u05D1\\u05DC. Does NOT do the work \\u2014 it identifies the right downstream YUV.AI skills (yuv-design-system across 3 modes, yuv-decks for slides, yuv-viral-video for short MP4s, hyperframes for HTML\\u2192MP4, nano-banana for in-brand imagery, gsap for animation), explains the composition, hands off. Does NOT apply to non-YUV.AI requests. When"
   },
   {
     "id": "yuv-viral-video",
     "path": "skills/yuv-viral-video",
     "name": "yuv-viral-video",
-    "description": "Edit any selfie or screen-share footage into a viral short-form video in YUV.AI's signature style — Apple-style liquid-glass cards (real CSS backdrop-filter), dark-mode polish, MrBeast-paced cuts, video-title karaoke captions, premium GSAP motion graphics, no fake content, never covering the speaker's face. Hebrew is rendered in Rubik Black, English in Anton uppercase. Always renders BOTH 9:16 and 16:9 and always saves with _V<N> suffix for backups. Trigger when the user drops a path to an .mp4/.mov/.mkv and says \"edit this\", \"make it viral\", \"turn this into a short\", or any Hebrew equivalent (ערוך סרטון, סרטון ויראלי, להפוך לוויראלי, ריל, שורט). The pipeline is the COMBINATION of two skills: video-use (transcription + word-snapped cuts + base extraction) and hyperframes (HTML/CSS/GSAP visual composition + render). Do NOT use for podcast-only audio edits."
+    "description": "\"Edit any selfie or screen-share footage into a viral short-form video in YUV.AI's signature style \\u2014 Apple-style liquid-glass cards (real CSS backdrop-filter), dark-mode polish, MrBeast-paced cuts, video-title karaoke captions, premium GSAP motion graphics, no fake content, never covering the speaker's face. Hebrew is rendered in Rubik Black, English in Anton uppercase. Always renders BOTH 9:16 and 16:9 and always saves with _V<N> suffix for backups. Trigger when the user drops a path to an .mp4/.mov/.mkv and says \\\"edit this\\\", \\\"make it viral\\\", \\\"turn this into a short\\\", or any Hebrew equivalent (\\u05E2\\u05E8\\u05D5\\u05DA \\u05E1\\u05E8\\u05D8\\u05D5\\u05DF, \\u05E1\\u05E8\\u05D8\\u05D5\\u05DF \\u05D5\\u05D9\\u05E8\\u05D0\\u05DC\\u05D9, \\u05DC\\u05D4\\u05E4\\u05D5\\u05DA \\u05DC\\u05D5\\u05D5\\u05D9\\u05E8\\u05D0\\u05DC\\u05D9, \\u05E8\\u05D9\\u05DC, \\u05E9\\u05D5\\u05E8\\u05D8). The pipeline is the COMBINATION of two skills: video-use (transcription + word-snapped cuts +"
   },
   {
     "id": "zapier-make-patterns",
