@@ -114,111 +114,20 @@ Many skills in this project originate from excellent open-source communities. To
 
     > **Note**: The `ui-ux-pro-max` skill has a special directory structure and does not support automatic synchronization via script for now. Please use its official installation command `uipro init --ai antigravity` to install or update.
 
-## 🚀 Integrated Skills (Total: 79)
+## 🚀 Integrated Skills (Total: 2275)
 
-### 🎨 Creative & Design
-These skills focus on visual expression, UI/UX design, and artistic creation.
-- **`@[algorithmic-art]`**: Create algorithmic and generative art using p5.js code.
-- **`@[canvas-design]`**: Create posters and artworks (PNG/PDF output) based on design philosophies.
-- **`@[json-canvas]`**: Create and edit JSON Canvas files (`.canvas`) with nodes, edges, and groups (commonly used in Obsidian).
-- **`@[frontend-design]`**: Create high-quality, production-grade frontend interfaces and Web components.
-- **`@[ui-ux-pro-max]`**: Professional UI/UX design intelligence, providing full design schemes for colors, fonts, layouts, etc.
-- **`@[web-artifacts-builder]`**: Build complex, modern Web apps (based on React, Tailwind, Shadcn/ui).
-- **`@[theme-factory]`**: Generate matching themes for documents, slides, HTML, etc.
-- **`@[brand-guidelines]`**: Apply Anthropic's official brand design specifications (colors, typography, etc.).
-- **`@[remotion]`**: Best practices for Remotion - Video creation in React.
-- **`@[web-design-guidelines]`**: Review UI code for Web Interface Guidelines compliance (accessibility, UX, design audit).
-- **`@[slack-gif-creator]`**: Create high-quality animated GIFs optimized specifically for Slack.
-- **`@[baoyu-infographic]`**: Generate professional infographics with various layouts and styles.
-- **`@[baoyu-diagram]`**: Generate structured diagrams from content.
-- **`@[baoyu-imagine]`**: AI image generation wrapper for Midjourney or similar.
-- **`@[baoyu-image-gen]`**: [Deprecated: use `@[baoyu-imagine]`] AI image generation with multiple APIs.
+This library includes a vast collection of **2,275** active agent skills spanning across software engineering, system administration, security auditing, design, content creation, and more. 
 
-### 📢 Content & Publishing
-These skills focus on content generation, formatting, and publishing to social media.
-- **`@[baoyu-xhs-images]`**: Xiaohongshu image card series generator with styles and layouts.
-- **`@[baoyu-post-to-wechat]`**: Publish content to WeChat Official Account.
-- **`@[baoyu-post-to-weibo]`**: Publish content to Weibo.
-- **`@[baoyu-post-to-x]`**: Publish content to X (Twitter).
-- **`@[baoyu-cover-image]`**: Generate professional cover images.
-- **`@[baoyu-slide-deck]`**: Generate presentation slide decks.
-- **`@[baoyu-comic]`**: Generate comic strips from content.
-- **`@[baoyu-article-illustrator]`**: Generate illustrations for articles.
-- **`@[baoyu-image-cards]`**: Generates infographic image card series with multiple styles and layouts (optimized for social media).
+To keep the repository clean and easily navigable, the full alphabetical index of all integrated skills is maintained in a dedicated registry file:
 
-### 🛠️ Development & Engineering
-These skills cover the full lifecycle of coding, testing, debugging, and code review.
-- **`@[composition-patterns]`**: React composition patterns for building scalable, flexible component libraries.
-- **`@[react-best-practices]`**: Vercel's official React and Next.js performance optimization guidelines.
-- **`@[react-native-skills]`**: React Native and Expo best practices for performant mobile apps.
-- **`@[supabase-postgres-best-practices]`**: Postgres performance optimization and best practices from Supabase.
-- **`@[test-driven-development]`**: Test-Driven Development (TDD) - write tests before implementation code.
-- **`@[systematic-debugging]`**: Systematic debugging for resolving bugs, test failures, or abnormal behaviors.
-- **`@[webapp-testing]`**: Use Playwright for interactive testing and verification of local web applications.
-- **`@[receiving-code-review]`**: Handle code review feedback using technical verification rather than blind modification.
-- **`@[requesting-code-review]`**: Proactively initiate code reviews to verify code quality before merging or completion.
-- **`@[finishing-a-development-branch]`**: Guide the finalization of a development branch (merges, PRs, cleanups, etc.).
-- **`@[subagent-driven-development]`**: Coordinate multiple sub-agents to perform independent development tasks in parallel.
-- **`@[claude-api]`**: Build apps with the Claude API or Anthropic SDK (Python, TypeScript, Java, Go, etc.).
+👉 **[View the Complete Skills List (SKILLS_LIST.md)](SKILLS_LIST.md)** 👈
 
-### 📄 Documentation & Office
-These skills are used for handling professional documents and office needs in various formats.
-- **`@[doc-coauthoring]`**: Guide users through collaborative writing of structured documents (proposals, tech specs, etc.).
-- **`@[obsidian-markdown]`**: Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, and properties.
-- **`@[obsidian-bases]`**: Create and edit Obsidian Bases (`.base`) files with views, filters, formulas, and summaries.
-- **`@[obsidian-cli]`**: Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes from the command line.
-- **`@[defuddle]`**: Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation.
-- **`@[docx]`**: Create, edit, and analyze Word documents.
-- **`@[xlsx]`**: Create, edit, and analyze Excel spreadsheets (supporting formulas and charts).
-- **`@[pptx]`**: Create and modify PowerPoint presentations.
-- **`@[pdf]`**: Process PDF documents, including extracting text/tables, merging/splitting, and filling forms.
-- **`@[internal-comms]`**: Draft various corporate internal communication documents (weekly reports, announcements, FAQs, etc.).
-- **`@[notebooklm]`**: Query Google NotebookLM notebooks for definitive, document-grounded answers.
-- **`@[baoyu-youtube-transcript]`**: Fetch and process YouTube video transcripts.
-- **`@[baoyu-url-to-markdown]`**: Convert web page content to clean Markdown.
-- **`@[baoyu-format-markdown]`**: Format and clean up Markdown files.
-- **`@[baoyu-markdown-to-html]`**: Convert Markdown to styled HTML.
-- **`@[baoyu-translate]`**: High-quality translation for articles and content.
-- **`@[baoyu-compress-image]`**: Compress and optimize images.
-- **`@[baoyu-danger-gemini-web]`**: Web automation or scraping using Gemini (experimental).
-- **`@[baoyu-danger-x-to-markdown]`**: Convert X (Twitter) threads to Markdown.
+The index is automatically updated daily. If you add or modify skills locally, you can rebuild the index using:
+```bash
+python3 scripts/update_skills_index.py
+python3 scripts/generate_skills_list.py
+```
 
-
-### 📅 Planning & Workflow
-These skills help optimize workflows, task planning, and execution efficiency.
-- **`@[brainstorming]`**: Brainstorm before starting any work to clarify requirements and design.
-- **`@[writing-plans]`**: Write detailed execution plans (Specs) for complex multi-step tasks.
-- **`@[planning-with-files]`**: A file-based planning system (Manus-style) suitable for complex tasks.
-- **`@[executing-plans]`**: Execute existing implementation plans with checkpoints and review mechanisms.
-- **`@[using-git-worktrees]`**: Create isolated Git worktrees for parallel development or task switching.
-- **`@[verification-before-completion]`**: Run verification commands to ensure concrete evidence before declaring task completion.
-- **`@[using-superpowers]`**: Guide users to discover and use these advanced skills.
-
-### 🧠 Core Cognition & Architecture
-These skills build the agent's mental models, memory systems, and context management capabilities.
-- **`@[bdi-mental-states]`**: Simulate Agent's Belief-Desire-Intention (BDI) models.
-- **`@[memory-systems]`**: Build long-term memory and entity tracking systems based on knowledge graphs or vectors.
-- **`@[context-fundamentals]`**: Understand and debug fundamental issues like context windows and attention mechanisms.
-- **`@[context-optimization]`**: Optimize context efficiency to reduce Token costs via KV-cache or partitioning.
-- **`@[context-compression]`**: Implement context compression and summarization to handle long window limits.
-- **`@[context-degradation]`**: Diagnose and fix context degradation issues like "lost in the middle".
-- **`@[filesystem-context]`**: Utilize the filesystem for dynamic context offloading and management.
-
-### 📐 System Design & Evaluation
-These skills focus on architectural design, tool building, and quality assessment of AI systems.
-- **`@[project-development]`**: Full lifecycle design of LLM projects, including task-model matching and pipeline architecture.
-- **`@[tool-design]`**: Design efficient and clear agent tool interfaces and MCP protocols.
-- **`@[evaluation]`**: Establish multi-dimensional agent performance evaluation systems and quality gates.
-- **`@[advanced-evaluation]`**: Implement advanced evaluation methods like LLM-as-a-Judge and pairwise comparison.
-
-### 🧩 System Extension
-These skills allow me to extend my own capability boundaries.
-- **`@[mcp-builder]`**: Build MCP (Model Context Protocol) servers to connect external tools and data.
-- **`@[skill-creator]`**: Create new skills or update existing ones to expand my knowledge base and workflows.
-- **`@[writing-skills]`**: A subset of tools to assist in writing, editing, and verifying skill files.
-- **`@[dispatching-parallel-agents]`**: Dispatch parallel tasks to multiple agents for processing.
-- **`@[multi-agent-patterns]`**: Design advanced multi-agent collaboration patterns like Supervisor or Swarm.
-- **`@[hosted-agents]`**: Build and deploy sandboxed, persistently running background agents.
 
 ## 🌟 Credits & Sources
 
