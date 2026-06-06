@@ -33,7 +33,7 @@ Please use the [GitHub Issues](https://github.com/muhammedadnank/Antigravity-Ski
 
 1.  **Clone your fork**:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/antigravity-skills.git
+    git clone https://github.com/muhammedadnank/antigravity-skills.git
     ```
 2.  **Create a feature branch**:
     ```bash

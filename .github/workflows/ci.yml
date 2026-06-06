@@ -1,0 +1,29 @@
+name: CI Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-index-and-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Validate Skills Index is Up-to-Date
+        run: |
+          python3 scripts/update_skills_index.py
+          git diff --exit-code skills_index.json || (echo "::error::skills_index.json is out of date! Please run 'python3 scripts/update_skills_index.py' locally and commit the changes." && exit 1)
+
+      - name: Validate Documentation Lists are Up-to-Date
+        run: |
+          python3 scripts/generate_skills_list.py
+          git diff --exit-code SKILLS_LIST.md skills/README.md || (echo "::error::SKILLS_LIST.md or skills/README.md is out of date! Please run 'python3 scripts/generate_skills_list.py' locally and commit the changes." && exit 1)
