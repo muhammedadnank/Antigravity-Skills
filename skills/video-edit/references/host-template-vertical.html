@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Hebrew Captioned · Vertical (TikTok / Reels)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px;
+        overflow: hidden; background: #05050a;
+      }
+      #root {
+        position: relative; width: 1080px; height: 1920px;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 60% 50% at 30% 20%, rgba(255, 61, 166, 0.12), transparent 70%),
+          radial-gradient(ellipse 60% 50% at 70% 80%, rgba(139, 92, 246, 0.14), transparent 70%),
+          linear-gradient(180deg, #07070d 0%, #04040a 50%, #07070d 100%);
+      }
+      .bg-video { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+      .bg-video video {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%; object-fit: cover;
+        filter: blur(60px) brightness(0.55) saturate(1.25);
+        opacity: 0.6;
+      }
+      .vignette {
+        position: absolute; inset: 0; z-index: 2;
+        background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+        pointer-events: none;
+      }
+      .cam-strip {
+        position: absolute;
+        left: 0; top: 656px;
+        width: 1080px; height: 608px;
+        z-index: 3; background: #000; overflow: hidden;
+        box-shadow:
+          0 40px 100px rgba(0, 0, 0, 0.7),
+          0 -40px 100px rgba(0, 0, 0, 0.7),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      }
+      .cam-strip video {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%; object-fit: cover;
+      }
+      .cap { position: absolute; inset: 0; }
+      .fx { position: absolute; inset: 0; pointer-events: none; }
+      #prog {
+        position: absolute; left: 0; right: 0; bottom: 0;
+        height: 8px; background: rgba(255, 255, 255, 0.08);
+      }
+      #prog-fill {
+        height: 100%; width: 100%;
+        background: linear-gradient(90deg, #ff3da6 0%, #ffd700 100%);
+        transform: scaleX(0); transform-origin: left center;
+      }
+      .brand {
+        position: absolute; top: 40px; right: 40px; z-index: 50;
+        font-family: "Anton", sans-serif;
+        font-size: 28px; letter-spacing: 0.06em;
+        color: #ff3da6; text-transform: uppercase;
+        padding: 8px 16px;
+        background: rgba(10, 10, 20, 0.55);
+        border: 1px solid rgba(255, 61, 166, 0.4);
+        backdrop-filter: blur(6px);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="178.93"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div class="bg-video">
+        <video
+          id="footage-bg"
+          class="clip"
+          src="footage.mp4"
+          muted
+          playsinline
+          data-start="0"
+          data-duration="178.93"
+          data-track-index="0"
+        ></video>
+      </div>
+
+      <div
+        class="clip"
+        id="cap-blobs"
+        data-composition-id="liquid-blobs"
+        data-composition-src="compositions/liquid-blobs.html"
+        data-start="0"
+        data-duration="178.93"
+        data-track-index="10"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 1; mix-blend-mode: screen; opacity: 0.5"
+      ></div>
+
+      <div class="vignette"></div>
+
+      <div class="cam-strip">
+        <video
+          id="footage"
+          class="clip"
+          src="footage.mp4"
+          muted
+          playsinline
+          data-start="0"
+          data-duration="178.93"
+          data-track-index="1"
+        ></video>
+      </div>
+
+      <div
+        class="clip cap"
+        id="cap-body"
+        data-composition-id="caption-body"
+        data-composition-src="compositions/components/caption-body.html"
+        data-start="0"
+        data-duration="178.93"
+        data-track-index="3"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 6"
+      ></div>
+
+      <div class="clip fx" id="fx-main" data-start="0" data-duration="178.93" data-track-index="6" style="z-index: 46">
+        <div id="prog"><div id="prog-fill"></div></div>
+      </div>
+      <div class="brand">YUV.AI</div>
+
+      <audio
+        id="a-roll-audio"
+        class="clip"
+        src="footage.mp4"
+        data-start="0"
+        data-duration="178.93"
+        data-track-index="7"
+        data-volume="1"
+      ></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      tl.from(".bg-video, .cam-strip", { opacity: 0, duration: 0.4, ease: "power2.out" }, 0);
+      tl.fromTo("#prog-fill", { scaleX: 0 }, { scaleX: 1, duration: 178.93, ease: "none" }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

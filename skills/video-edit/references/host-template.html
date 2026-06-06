@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Claude Desktop — Captioned Tutorial</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #05050a;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #05050a;
+      }
+
+      /* footage + subject cut-outs */
+      .cam {
+        position: absolute;
+        inset: 0;
+        will-change: transform;
+      }
+      .cam video,
+      .cam-out video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cam-bg {
+        z-index: 0;
+      }
+      .cam-sub {
+        z-index: 3;
+        opacity: 0;
+      }
+      .cam-out {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        opacity: 0;
+      }
+
+      .cap {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* FX */
+      .fx {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .grain {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 320px 320px;
+        opacity: 0.2;
+        mix-blend-mode: overlay;
+      }
+      .vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 80% 78% at 50% 44%,
+          rgba(0, 0, 0, 0) 56%,
+          rgba(5, 5, 12, 0.62) 100%
+        );
+      }
+      .bracket {
+        position: absolute;
+        width: 66px;
+        height: 66px;
+        filter: drop-shadow(0 0 7px rgba(255, 61, 166, 0.55));
+      }
+      .br-tl {
+        top: 46px;
+        left: 46px;
+        border-top: 3px solid #ff3da6;
+        border-left: 3px solid #ff3da6;
+      }
+      .br-tr {
+        top: 46px;
+        right: 46px;
+        border-top: 3px solid #ff3da6;
+        border-right: 3px solid #ff3da6;
+      }
+      #prog {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      #prog-fill {
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(90deg, #ff3da6 0%, #ffd700 100%);
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+      #flash {
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        opacity: 0;
+      }
+      /* liquid morph wipe */
+      #lwipe {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      #lwipe-g {
+        position: absolute;
+        left: 960px;
+        top: 540px;
+        width: 0;
+        height: 0;
+        filter: blur(40px);
+      }
+      .lw {
+        position: absolute;
+        width: 540px;
+        height: 540px;
+        margin-left: -270px;
+        margin-top: -270px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="167.27"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- z0: footage -->
+      <div class="cam cam-bg">
+        <video
+          id="footage"
+          class="clip"
+          src="footage.mp4"
+          muted
+          playsinline
+          data-start="0"
+          data-duration="167.27"
+          data-track-index="0"
+        ></video>
+      </div>
+
+      <!-- z1: liquid blob background (screen-blended; glows on dark scenes, vanishes on the white UI) -->
+      <div
+        class="clip"
+        id="cap-blobs"
+        data-composition-id="liquid-blobs"
+        data-composition-src="compositions/liquid-blobs.html"
+        data-start="0"
+        data-duration="167.27"
+        data-track-index="10"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 1; mix-blend-mode: screen; opacity: 0.6"
+      ></div>
+
+      <!-- z2: parallax captions woven BEHIND the subject -->
+      <div
+        class="clip cap"
+        id="cap-parallax"
+        data-composition-id="caption-parallax-layers"
+        data-composition-src="compositions/components/caption-parallax-layers.html"
+        data-start="5.3"
+        data-duration="2.40"
+        data-track-index="1"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 2"
+      ></div>
+      <div
+        class="clip cap"
+        id="cap-parallax-outro"
+        data-composition-id="caption-parallax-outro"
+        data-composition-src="compositions/components/caption-parallax-outro.html"
+        data-start="146"
+        data-duration="14.5"
+        data-track-index="9"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 2"
+      ></div>
+
+      <!-- z3: transparent subject cut-outs -->
+      <div class="cam cam-sub">
+        <video
+          id="cutout"
+          class="clip"
+          src="intro_subject.webm"
+          muted
+          playsinline
+          data-start="5.1"
+          data-media-start="5.1"
+          data-duration="2.8"
+          data-track-index="2"
+        ></video>
+      </div>
+      <div class="cam-out">
+        <video
+          id="cutout-out"
+          class="clip"
+          src="outro_subject.webm"
+          muted
+          playsinline
+          data-start="144"
+          data-media-start="1.0"
+          data-duration="16.5"
+          data-track-index="8"
+        ></video>
+      </div>
+
+      <!-- z6: caption styles -->
+      <div
+        class="clip cap"
+        id="cap-kinetic"
+        data-composition-id="caption-kinetic-slam"
+        data-composition-src="compositions/components/caption-kinetic-slam.html"
+        data-start="0"
+        data-duration="9.0"
+        data-track-index="3"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 6"
+      ></div>
+      <div
+        class="clip cap"
+        id="cap-body"
+        data-composition-id="caption-body"
+        data-composition-src="compositions/components/caption-body.html"
+        data-start="9.0"
+        data-duration="151.84"
+        data-track-index="3"
+        data-width="1920"
+        data-height="1080"
+        style="z-index: 6"
+      ></div>
+
+      <!-- z40: intro-only chrome -->
+      <div class="clip fx" id="fx-intro" data-start="0" data-duration="9.0" data-track-index="5" style="z-index: 40">
+        <div class="grain"></div>
+        <div class="vignette"></div>
+        <div class="bracket br-tl"></div>
+        <div class="bracket br-tr"></div>
+      </div>
+
+      <!-- z46: full-duration chrome + liquid transitions -->
+      <div class="clip fx" id="fx-main" data-start="0" data-duration="167.27" data-track-index="6" style="z-index: 46">
+        <div id="prog"><div id="prog-fill"></div></div>
+        <div id="flash"></div>
+        <div id="lwipe">
+          <div id="lwipe-g">
+            <div class="lw" style="left: -340px; top: -180px; background: radial-gradient(circle, #ff3da6 0%, #ff3da6 58%, rgba(255,61,166,0) 82%)"></div>
+            <div class="lw" style="left: 320px; top: -240px; background: radial-gradient(circle, #8b5cf6 0%, #8b5cf6 58%, rgba(139,92,246,0) 82%)"></div>
+            <div class="lw" style="left: -260px; top: 260px; background: radial-gradient(circle, #ff5d8f 0%, #ff5d8f 58%, rgba(255,93,143,0) 82%)"></div>
+            <div class="lw" style="left: 360px; top: 220px; background: radial-gradient(circle, #a855f7 0%, #a855f7 58%, rgba(168,85,247,0) 82%)"></div>
+            <div class="lw" style="left: 40px; top: -30px; background: radial-gradient(circle, #d12fb0 0%, #d12fb0 58%, rgba(209,47,176,0) 82%)"></div>
+            <div class="lw" style="left: 70px; top: 320px; background: radial-gradient(circle, #ff3da6 0%, #ff3da6 58%, rgba(255,61,166,0) 82%)"></div>
+          </div>
+        </div>
+      </div>
+
+      <audio
+        id="a-roll-audio"
+        class="clip"
+        src="footage.mp4"
+        data-start="0"
+        data-duration="167.27"
+        data-track-index="7"
+        data-volume="1"
+      ></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      /* opening: fade up + push-in settle */
+      tl.from(".cam-bg", { opacity: 0, duration: 0.35, ease: "power2.out" }, 0);
+      tl.fromTo(".cam", { scale: 1.06 }, { scale: 1.0, duration: 0.8, ease: "power3.out" }, 0);
+
+      /* intro camera punches (footage + cut-out move together) */
+      tl.to(".cam", { scale: 1.045, duration: 0.12, ease: "power2.out" }, 1.3);
+      tl.to(".cam", { scale: 1.0, duration: 0.5, ease: "power2.inOut" }, 1.42);
+      tl.to(".cam", { scale: 1.038, duration: 0.12, ease: "power2.out" }, 2.85);
+      tl.to(".cam", { scale: 1.0, duration: 0.5, ease: "power2.inOut" }, 2.97);
+
+      /* intro subject cut-out crossfade */
+      tl.fromTo(".cam-sub", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 5.15);
+      tl.to(".cam-sub", { opacity: 0, duration: 0.3, ease: "power2.in" }, 7.55);
+
+      /* outro subject cut-out crossfade */
+      tl.fromTo(".cam-out", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 144.3);
+      tl.to(".cam-out", { opacity: 0, duration: 0.4, ease: "power2.in" }, 159.9);
+
+      /* small beat flashes (intro slams) */
+      function flash(t, peak) {
+        tl.set("#flash", { opacity: peak }, t);
+        tl.to("#flash", { opacity: 0, duration: 0.18, ease: "expo.out" }, t);
+      }
+      flash(1.3, 0.4);
+      flash(2.85, 0.4);
+
+      /* liquid morph wipes at the section cuts */
+      function liquidWipe(t) {
+        tl.set("#lwipe", { opacity: 1 }, t - 0.34);
+        tl.fromTo(
+          "#lwipe-g",
+          { scale: 0 },
+          { scale: 4.6, duration: 0.34, ease: "power2.in", overwrite: "auto" },
+          t - 0.34,
+        );
+        tl.to("#lwipe-g", { scale: 0, duration: 0.42, ease: "power2.out", overwrite: "auto" }, t);
+        tl.set("#lwipe", { opacity: 0 }, t + 0.42);
+      }
+      liquidWipe(8.6); // talking head -> screen recording
+      liquidWipe(143.8); // screen recording -> outro talking head
+      liquidWipe(160.7); // outro talking head -> end graphic
+
+      /* intro viewfinder brackets */
+      tl.from(
+        ".bracket",
+        { opacity: 0, scale: 0.4, duration: 0.5, ease: "back.out(2)", stagger: 0.1 },
+        0.2,
+      );
+
+      /* progress bar */
+      tl.fromTo("#prog-fill", { scaleX: 0 }, { scaleX: 1, duration: 167.27, ease: "none" }, 0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

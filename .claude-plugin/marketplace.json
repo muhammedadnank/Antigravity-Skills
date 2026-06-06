@@ -1,0 +1,18 @@
+{
+    "name": "antigravity-skills",
+    "owner": {
+        "name": "guanyang",
+        "email": "guanyangsunlight@gmail.com"
+    },
+    "metadata": {
+        "description": "Antigravity Skills plugin marketplace",
+        "version": "2.1.0"
+    },
+    "plugins": [
+        {
+            "name": "antigravity-skills",
+            "description": "Professional Agent Skills collection for full-stack development, logic planning, and multimedia processing.",
+            "source": "./"
+        }
+    ]
+}

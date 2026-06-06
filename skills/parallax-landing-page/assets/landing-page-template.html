@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  PARALLAX LANDING PAGE TEMPLATE
+
+  Copy this file to `<target>/<slug>.html` and replace every `{{...}}`
+  placeholder. Do not change the structure, class names, scene data-start /
+  data-end ranges, or the parallax.js init call (other than its options).
+  Those are load-bearing — `parallax.js` queries them by class and by data
+  attribute.
+
+  See: ../SKILL.md (Phase 3) and ../references/copy-guide.md
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="{{PAGE_DESCRIPTION}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Prime the browser cache with first, middle, last frames so the
+       loader's progress bar starts moving immediately. -->
+  <link rel="preload" as="image" href="{{SLUG}}/frame-001.jpg" />
+  <link rel="preload" as="image" href="{{SLUG}}/frame-{{PREVIEW_FRAME_MID}}.jpg" />
+  <link rel="preload" as="image" href="{{SLUG}}/frame-{{PREVIEW_FRAME_END}}.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+
+  <!-- Loader: shows until all frames are preloaded. -->
+  <div class="loader" aria-live="polite">
+    <div class="loader-title">{{LOADER_TITLE}}</div>
+    <div class="loader-script">{{LOADER_SCRIPT}}</div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <div class="loader-progress">0%</div>
+  </div>
+
+  <!-- Fixed nav. Always include Home + one link per landing in the project.
+       Mark the current page with class="active". -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">PARALLAX <span class="slash">// showcase</span></a>
+    <div class="nav-links">
+      {{NAV_LINKS_HTML}}
+    </div>
+  </nav>
+
+  <!-- Scrub section: one locked viewport. The page itself never scrolls. -->
+  <section class="scrub" id="scrub">
+    <div class="scrub-pin">
+      <canvas class="bg-canvas" aria-hidden="true"></canvas>
+      <div class="vignette"></div>
+      <div class="grain"></div>
+
+      <div class="scene-stack">
+        <!-- ============== SCENE 1 — HERO ==============
+             Hero stays visible longer (data-fade=0.30) so the user has time
+             to read it before the next frame nudges it out. Use <h1> here. -->
+        <div class="scene" data-start="0.00" data-end="0.20" data-fade="0.30">
+          <div class="scene-inner">
+            <span class="kicker">{{SCENE_1_KICKER}}</span>
+            <h1 class="huge">{{SCENE_1_HEADLINE}}</h1>
+            <p class="script {{ACCENT_CLASS}}">{{SCENE_1_SCRIPT}}</p>
+          </div>
+        </div>
+
+        <!-- ============== SCENE 2 — left-bottom anchor ============== -->
+        <div class="scene align-left align-bottom" data-start="0.22" data-end="0.40">
+          <div class="scene-inner">
+            <span class="kicker">{{SCENE_2_KICKER}}</span>
+            <h2 class="huge smaller">{{SCENE_2_HEADLINE}}</h2>
+            <p class="script cream">{{SCENE_2_SCRIPT}}</p>
+          </div>
+        </div>
+
+        <!-- ============== SCENE 3 — right-top anchor ============== -->
+        <div class="scene align-right align-top" data-start="0.42" data-end="0.60">
+          <div class="scene-inner">
+            <span class="kicker">{{SCENE_3_KICKER}}</span>
+            <h2 class="huge smaller">{{SCENE_3_HEADLINE}}</h2>
+            <p class="script {{ACCENT_CLASS}}">{{SCENE_3_SCRIPT}}</p>
+          </div>
+        </div>
+
+        <!-- ============== SCENE 4 — left anchor ============== -->
+        <div class="scene align-left" data-start="0.62" data-end="0.80">
+          <div class="scene-inner">
+            <span class="kicker">{{SCENE_4_KICKER}}</span>
+            <h2 class="huge smaller">{{SCENE_4_HEADLINE}}</h2>
+            <p class="script cream">{{SCENE_4_SCRIPT}}</p>
+          </div>
+        </div>
+
+        <!-- ============== SCENE 5 — FINAL (with CTAs) ==============
+             The CTAs live inside this scene. There is NO separate .end
+             section beneath. Final scene also uses a tighter fade
+             (data-fade=0.18) so it sits and holds. -->
+        <div class="scene" data-start="0.82" data-end="1.00" data-fade="0.18">
+          <div class="scene-inner">
+            <span class="kicker">{{SCENE_5_KICKER}}</span>
+            <h2 class="huge smaller">{{SCENE_5_HEADLINE}}</h2>
+            <p class="script {{ACCENT_CLASS}}">{{SCENE_5_SCRIPT}}</p>
+            <div class="end-actions">
+              {{CTA_BUTTONS_HTML}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">{{SCROLL_HINT_TEXT}}</div>
+      <div class="frame-counter">{{FRAME_COUNTER_TEXT}}</div>
+    </div>
+  </section>
+
+  <script src="parallax.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const page = new ParallaxPage({
+        folder: '{{SLUG}}',
+        frameCount: {{FRAME_COUNT}},
+        prefix: 'frame-',
+        scrollBudget: {{SCROLL_BUDGET}},
+      });
+      page.start();
+    });
+  </script>
+</body>
+</html>

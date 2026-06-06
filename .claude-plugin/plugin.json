@@ -1,0 +1,22 @@
+{
+    "name": "antigravity-skills",
+    "description": "Professional Agent Skills collection for full-stack development, logic planning, and multimedia processing.",
+    "version": "2.1.0",
+    "author": {
+        "name": "guanyang",
+        "email": "guanyangsunlight@gmail.com",
+        "url": "https://github.com/guanyang"
+    },
+    "homepage": "https://github.com/guanyang/antigravity-skills",
+    "repository": "https://github.com/guanyang/antigravity-skills",
+    "license": "MIT",
+    "keywords": [
+        "skills",
+        "agent",
+        "antigravity",
+        "claude-code",
+        "workflows",
+        "full-stack",
+        "ai-agents"
+    ]
+}

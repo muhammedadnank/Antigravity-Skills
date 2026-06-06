@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>__HEADLINE__</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&family=Rubik:wght@900&family=Assistant:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --pink: #ff3da6;
+        --yellow: #ffd24a;
+        --bone: #f5f0d0;
+        --bg: #0a0a12;
+        --ink: #14141c;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        background: var(--bg);
+        color: var(--bone);
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: inherit; text-decoration: none; }
+
+      /* ---- scroll stage ---- */
+      .scroll-stage {
+        position: relative;
+        min-height: 600vh; /* tweak: more vh = slower scrub */
+      }
+      .hero {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background: #000;
+      }
+      .frame {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+      }
+      .frame.active { display: block; }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 6vw;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.55) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.45) 100%);
+      }
+      .headline {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+        font-size: clamp(48px, 8vw, 160px);
+        line-height: 0.95;
+        letter-spacing: 0.02em;
+        color: var(--bone);
+        text-transform: uppercase;
+        text-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      }
+      .tagline {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: clamp(16px, 1.6vw, 26px);
+        margin-top: 1.2em;
+        max-width: 64ch;
+        opacity: 0.9;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+      }
+      .scroll-cue {
+        position: absolute;
+        bottom: 4vh;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+      .scroll-cue::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 36px;
+        background: var(--bone);
+        margin: 12px auto 0;
+        animation: cue 1.8s ease-in-out infinite;
+        transform-origin: top;
+      }
+      @keyframes cue {
+        0%, 100% { transform: scaleY(0.2); opacity: 0.3; }
+        50% { transform: scaleY(1); opacity: 0.9; }
+      }
+
+      /* ---- below-hero sections ---- */
+      .below {
+        position: relative;
+        z-index: 2;
+        background: var(--bg);
+      }
+      .section {
+        padding: 18vh 8vw;
+        border-top: 1px solid rgba(245, 240, 208, 0.08);
+      }
+      .section h2 {
+        font-family: "Anton", sans-serif;
+        font-weight: 400;
+        font-size: clamp(40px, 5.4vw, 110px);
+        line-height: 0.95;
+        letter-spacing: 0.01em;
+        color: var(--yellow);
+        text-transform: uppercase;
+        margin-bottom: 0.4em;
+      }
+      .section p {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: clamp(17px, 1.3vw, 22px);
+        line-height: 1.6;
+        max-width: 62ch;
+        opacity: 0.86;
+      }
+      .cta {
+        display: inline-block;
+        margin-top: 2.4em;
+        padding: 1em 2em;
+        background: var(--pink);
+        color: var(--ink);
+        font-family: "Anton", sans-serif;
+        font-size: clamp(18px, 1.6vw, 28px);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        border: 0;
+        cursor: pointer;
+      }
+
+      /* ---- responsive niceties ---- */
+      @media (max-width: 720px) {
+        .scroll-stage { min-height: 450vh; }
+        .headline { font-size: 14vw; }
+        .section { padding: 12vh 6vw; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll-stage">
+      <div class="hero">
+        __FRAMES__
+        <div class="hero-overlay">
+          <h1 class="headline">__HEADLINE__</h1>
+          <p class="tagline">__TAGLINE__</p>
+        </div>
+        <div class="scroll-cue">scroll</div>
+      </div>
+    </div>
+
+    <main class="below">
+      <section class="section">
+        <h2>About</h2>
+        <p>Replace this block with the story you want to tell. The hero above scrubs through the video as the visitor scrolls — keep your copy down here brief and punchy.</p>
+        <a class="cta" href="__CTA_HREF__">__CTA_TEXT__</a>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        var frames = Array.from(document.querySelectorAll(".frame"));
+        var N = frames.length;
+        if (N === 0) return;
+        var stage = document.querySelector(".scroll-stage");
+        var currentIdx = 0;
+        var ticking = false;
+
+        function update() {
+          var rect = stage.getBoundingClientRect();
+          var scrollable = rect.height - window.innerHeight;
+          if (scrollable <= 0) {
+            ticking = false;
+            return;
+          }
+          var progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+          var idx = Math.min(N - 1, Math.floor(progress * (N - 1) + 0.0001));
+          if (idx !== currentIdx) {
+            frames[currentIdx].classList.remove("active");
+            frames[idx].classList.add("active");
+            currentIdx = idx;
+          }
+          ticking = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (!ticking) {
+              window.requestAnimationFrame(update);
+              ticking = true;
+            }
+          },
+          { passive: true },
+        );
+        window.addEventListener("resize", function () {
+          window.requestAnimationFrame(update);
+        });
+        update();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+display_name: Session Viewer
+short_description: Render agent session JSONL as searchable one-file HTML.
+default_prompt: View this session log in a browser.

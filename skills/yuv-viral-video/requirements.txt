@@ -1,0 +1,6 @@
+pillow>=10
+numpy>=1.24
+requests>=2.30
+python-bidi>=0.6
+fonttools>=4.50
+brotli>=1.1

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Parallax Outro — Hebrew</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: transparent;
+        font-family: "Rubik", sans-serif;
+      }
+      #parallax-outro {
+        pointer-events: none;
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: transparent;
+      }
+      .po-layer {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+        pointer-events: none;
+        transform: translateZ(0);
+      }
+      .po-safe {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 1920px;
+        height: 520px;
+      }
+      .po-block {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        opacity: 0;
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+      }
+      .po-line {
+        display: flex;
+        direction: rtl;
+        align-items: baseline;
+        justify-content: center;
+        gap: 20px;
+        line-height: 1.1;
+        white-space: nowrap;
+        transform: scaleY(2.6);
+        transform-origin: 50% 0%;
+      }
+      .po-word {
+        display: inline-block;
+        font-family: "Rubik", sans-serif;
+        font-weight: 900;
+        font-size: 220px;
+        line-height: 0.9;
+        color: #ff2f36;
+        -webkit-text-stroke: 5px #ff2f36;
+        text-shadow:
+          0 0 36px rgba(0, 0, 0, 0.96),
+          0 0 74px rgba(0, 0, 0, 0.86),
+          3px 8px 12px rgba(28, 0, 3, 0.95);
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="parallax-outro"
+      data-composition-id="caption-parallax-outro"
+      data-timeline-locked
+      data-start="0"
+      data-duration="7.0"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="po-layer" aria-hidden="true">
+        <div id="po-stage" class="po-safe"></div>
+      </div>
+    </div>
+
+    <script>
+      var DURATION = 7.0;
+      var BEHIND_WIDTH = 1700;
+
+      var _fitCanvas = document.createElement("canvas");
+      var _fitCtx = _fitCanvas.getContext("2d");
+      function fitFontSize(text, baseFontSize, fontWeight, fontFamily, maxWidth) {
+        var size = baseFontSize;
+        var minSize = Math.floor(baseFontSize * 0.45);
+        while (size > minSize) {
+          _fitCtx.font = fontWeight + " " + size + "px " + fontFamily;
+          if (_fitCtx.measureText(text).width <= maxWidth) return size;
+          size -= 2;
+        }
+        return minSize;
+      }
+
+      // Outro behind-subject beats — Hebrew sign-off keywords.
+      var W = [
+        { text: "שבוע", start: 0.4 },
+        { text: "טוב", start: 0.9 },
+        { text: "נתראה", start: 3.0 },
+        { text: "תגיבו!", start: 5.0 },
+      ];
+
+      var BLOCKS = [
+        { idx: [0, 1] }, // שבוע טוב
+        { idx: [2] },    // נתראה
+        { idx: [3] },    // תגיבו!
+      ];
+
+      var stage = document.getElementById("po-stage");
+
+      BLOCKS.forEach(function (block, bi) {
+        var bEl = document.createElement("div");
+        bEl.className = "po-block";
+        bEl.id = "pob" + bi;
+        var text = block.idx.map(function (i) { return W[i].text; }).join(" ");
+        var size = fitFontSize(text, 230, "900", "Rubik", BEHIND_WIDTH);
+        var line = document.createElement("div");
+        line.className = "po-line";
+        block.idx.forEach(function (i, wi) {
+          var span = document.createElement("span");
+          span.className = "po-word";
+          span.id = "pob" + bi + "w" + wi;
+          span.textContent = W[i].text;
+          span.style.fontSize = size + "px";
+          line.appendChild(span);
+        });
+        bEl.appendChild(line);
+        stage.appendChild(bEl);
+      });
+
+      var allBlocks = BLOCKS.map(function (_, i) { return document.getElementById("pob" + i); });
+
+      function applyScales() {
+        BLOCKS.forEach(function (block, bi) {
+          var line = allBlocks[bi].querySelector(".po-line");
+          if (line) {
+            var natW = line.scrollWidth;
+            if (natW > 0) {
+              line.style.transform = "scaleX(" + BEHIND_WIDTH / natW + ") scaleY(2.6)";
+            }
+          }
+        });
+      }
+      applyScales();
+
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      BLOCKS.forEach(function (block, bi) {
+        var start = W[block.idx[0]].start;
+        var nextStart = bi < BLOCKS.length - 1 ? W[BLOCKS[bi + 1].idx[0]].start : DURATION;
+        var bEl = allBlocks[bi];
+
+        allBlocks.forEach(function (other, oi) {
+          if (oi !== bi) tl.set(other, { opacity: 0 }, start);
+        });
+        tl.set(bEl, { opacity: 1 }, start);
+        block.idx.forEach(function (i, wi) {
+          var wordEl = document.getElementById("pob" + bi + "w" + wi);
+          tl.set(wordEl, { opacity: 0, y: 28 }, start);
+          tl.to(wordEl, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out" }, W[i].start);
+        });
+        tl.set(bEl, { opacity: 0 }, nextStart);
+      });
+
+      tl.to({}, { duration: DURATION }, 0);
+      window.__timelines["caption-parallax-outro"] = tl;
+
+      document.fonts.ready.then(applyScales);
+    </script>
+  </body>
+</html>

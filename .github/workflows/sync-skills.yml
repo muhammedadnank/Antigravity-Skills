@@ -1,0 +1,59 @@
+name: Sync Skills
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Run daily at midnight UTC
+
+permissions:
+  contents: write
+
+jobs:
+  sync-skills:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq git rsync
+
+      - name: Run sync skills script
+        run: |
+          chmod +x scripts/sync_skills.sh
+          ./scripts/sync_skills.sh
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected:"
+            git status -s
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected."
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Add all changes
+          git add .
+          
+          # Commit
+          git commit -m "chore(sync): auto-sync skills from upstream sources [skip ci]"
+          
+          # Push
+          git push origin main

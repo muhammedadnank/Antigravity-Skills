@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Liquid Blobs</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: transparent;
+      }
+      #liquid-blobs {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: transparent;
+      }
+      .blob-field {
+        position: absolute;
+        inset: -260px;
+        filter: blur(38px);
+      }
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        will-change: transform;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="liquid-blobs"
+      data-composition-id="liquid-blobs"
+      data-timeline-locked
+      data-start="0"
+      data-duration="167.27"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="blob-field">
+        <div class="blob" id="b0" style="left: 380px; top: 460px; width: 620px; height: 620px; background: radial-gradient(circle, #ff3da6 0%, rgba(255,61,166,0) 70%);"></div>
+        <div class="blob" id="b1" style="left: 1480px; top: 320px; width: 700px; height: 700px; background: radial-gradient(circle, #8b5cf6 0%, rgba(139,92,246,0) 70%);"></div>
+        <div class="blob" id="b2" style="left: 940px; top: 740px; width: 560px; height: 560px; background: radial-gradient(circle, #38bdf8 0%, rgba(56,189,248,0) 70%);"></div>
+        <div class="blob" id="b3" style="left: 440px; top: 900px; width: 540px; height: 540px; background: radial-gradient(circle, #ffc24a 0%, rgba(255,194,74,0) 70%);"></div>
+        <div class="blob" id="b4" style="left: 1560px; top: 860px; width: 640px; height: 640px; background: radial-gradient(circle, #ff5d8f 0%, rgba(255,93,143,0) 70%);"></div>
+        <div class="blob" id="b5" style="left: 1040px; top: 140px; width: 580px; height: 580px; background: radial-gradient(circle, #a855f7 0%, rgba(168,85,247,0) 70%);"></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        var DUR = 167.27;
+        var tl = gsap.timeline({ paused: true });
+
+        var BLOBS = [
+          { id: "#b0", dx: 360, dy: 250, dur: 33, sc: 1.2 },
+          { id: "#b1", dx: -300, dy: 290, dur: 38, sc: 0.84 },
+          { id: "#b2", dx: 290, dy: -310, dur: 29, sc: 1.22 },
+          { id: "#b3", dx: 330, dy: -210, dur: 35, sc: 1.15 },
+          { id: "#b4", dx: -350, dy: -270, dur: 31, sc: 0.82 },
+          { id: "#b5", dx: -270, dy: 330, dur: 27, sc: 1.18 },
+        ];
+
+        BLOBS.forEach(function (b) {
+          tl.to(
+            b.id,
+            {
+              x: b.dx,
+              y: b.dy,
+              duration: b.dur,
+              repeat: Math.ceil(DUR / b.dur),
+              yoyo: true,
+              ease: "sine.inOut",
+            },
+            0,
+          );
+          var sdur = b.dur * 0.64;
+          tl.to(
+            b.id,
+            {
+              scale: b.sc,
+              duration: sdur,
+              repeat: Math.ceil(DUR / sdur),
+              yoyo: true,
+              ease: "sine.inOut",
+            },
+            0,
+          );
+        });
+
+        window.__timelines["liquid-blobs"] = tl;
+      })();
+    </script>
+  </body>
+</html>

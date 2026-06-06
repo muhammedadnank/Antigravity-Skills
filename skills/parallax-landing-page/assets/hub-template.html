@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  HUB / INDEX TEMPLATE — only for standalone projects with 2+ landings.
+
+  If the project is just one landing, you don't need this file — the
+  landing's own nav can link only to itself.
+
+  The grid is 3-up on wide screens, 2-up on medium, 1-up on phones.
+  Add one <a class="hub-card"> per landing in the project. Each card
+  needs a unique accent: `.hub-card.<slug> .dot` is styled in style.css
+  (see the section just below the .hub-card .dot rule). Pick one of the
+  existing dot styles or add a new one.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{HUB_TITLE}}</title>
+  <meta name="description" content="{{HUB_DESCRIPTION}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Preload each card's hero image so the hub itself feels instant. -->
+  {{HUB_PRELOAD_HTML}}
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="hub-wrap">
+  <div class="scroll-progress"><div class="scroll-progress-bar"></div></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">PARALLAX <span class="slash">// showcase</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      {{HUB_NAV_LINKS_HTML}}
+    </div>
+  </nav>
+
+  <main class="hub-main">
+    <div class="hub-eyebrow">{{HUB_EYEBROW}}</div>
+
+    <h1 class="hub-title">
+      {{HUB_HEADLINE_HTML}}
+      <span class="script">{{HUB_HEADLINE_SCRIPT}}</span>
+    </h1>
+
+    <p class="hub-lead">{{HUB_LEAD}}</p>
+
+    <div class="hub-cards">
+      {{HUB_CARDS_HTML}}
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>© {{FOOTER_LEFT}}</span>
+    <span class="script">{{FOOTER_MIDDLE}}</span>
+    <span>{{FOOTER_RIGHT}}</span>
+  </footer>
+</body>
+</html>
+
+<!--
+  ============================================================================
+  CARD SNIPPET — one of these per landing inside the {{HUB_CARDS_HTML}} block.
+  Replace {{SLUG}}, {{ACCENT_FRAME}} (a padded number like "073"),
+  {{KICKER}}, {{HEADLINE_HTML}}, {{SCRIPT_LINE}}, and pick a {{DOT_CLASS}}
+  ('' for default pink, 'lion' for gold, 'hope' for amber, or add new).
+
+  <a href="{{SLUG}}.html" class="hub-card {{DOT_CLASS}}">
+    <div class="hub-card-bg" style="background-image: url('{{SLUG}}/frame-{{ACCENT_FRAME}}.jpg');"></div>
+    <span class="dot"></span>
+    <span class="hub-card-arrow">Enter →</span>
+    <div class="hub-card-content">
+      <span class="kicker">{{KICKER}}</span>
+      <h2>{{HEADLINE_HTML}}</h2>
+      <p class="script">{{SCRIPT_LINE}}</p>
+    </div>
+  </a>
+  ============================================================================
+-->
