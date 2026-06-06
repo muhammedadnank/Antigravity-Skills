@@ -19,7 +19,7 @@ We value clear documentation. You can improve existing manuals, README files, or
 - We maintain bilingual support (English/Chinese) for major documentation.
 
 ### 3. Reporting Bugs
-Please use the [GitHub Issues](https://github.com/guanyang/antigravity-skills/issues) to report bugs or technical failures. Provide as much context as possible, including:
+Please use the [GitHub Issues](https://github.com/muhammedadnank/Antigravity-Skills/issues) to report bugs or technical failures. Provide as much context as possible, including:
 - The skill being used.
 - The AI tool/Agent being used.
 - Steps to reproduce the issue.

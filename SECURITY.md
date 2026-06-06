@@ -13,7 +13,7 @@ We currently support security updates for the following versions:
 
 If you discover a security vulnerability in this project, please **DO NOT** report it via public Issues. Please follow these steps:
 
-1.  **Private Reporting**: Please send an email to the project maintainer (if applicable) or use GitHub's [Security Advisories](https://github.com/guanyang/antigravity-skills/security/advisories/new) feature (if enabled).
+1.  **Private Reporting**: Please send an email to the project maintainer (if applicable) or use GitHub's [Security Advisories](https://github.com/muhammedadnank/Antigravity-Skills/security/advisories/new) feature (if enabled).
 2.  **Details**: Please include as many details as possible in your report, such as reproduction steps, affected versions, and potential impact.
 3.  **Response Time**: We will make every effort to acknowledge your report within 48 hours and provide a fix as soon as possible.
 

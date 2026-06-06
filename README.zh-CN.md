@@ -48,7 +48,7 @@ Antigravity Skills 遵循通用的 **SKILL.md** 格式，可与任何支持 Agen
 ### 1. 准备技能库
 首先将本仓库克隆到本地（建议放在一个固定位置以便全局引用）：
 ```bash
-git clone https://github.com/guanyang/antigravity-skills.git ~/antigravity-skills
+git clone https://github.com/muhammedadnank/Antigravity-Skills.git ~/antigravity-skills
 ```
 
 ### 2. 安装技能 (Symlink 方式)
@@ -78,7 +78,7 @@ ln -s ~/antigravity-skills/skills/* .agent/skills/
 ```bash
 # 1. 启动 Claude Code
 # 2. 添加插件市场
-/plugin marketplace add guanyang/antigravity-skills
+/plugin marketplace add muhammedadnank/Antigravity-Skills
 
 # 3. 从市场安装插件
 /plugin install antigravity-skills@antigravity-skills

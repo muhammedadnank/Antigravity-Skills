@@ -48,7 +48,7 @@ Antigravity Skills follow the universal **SKILL.md** format and can work seamles
 ### 1. Prepare the Skills Library
 First, clone this repository locally (it is recommended to place it in a fixed location for global reference):
 ```bash
-git clone https://github.com/guanyang/antigravity-skills.git ~/antigravity-skills
+git clone https://github.com/muhammedadnank/Antigravity-Skills.git ~/antigravity-skills
 ```
 
 ### 2. Install Skills (Symlink Method)
@@ -78,7 +78,7 @@ If you primarily use **Claude Code**, you can install with one click via the plu
 ```bash
 # 1. Start Claude Code
 # 2. Add the plugin marketplace
-/plugin marketplace add guanyang/antigravity-skills
+/plugin marketplace add muhammedadnank/Antigravity-Skills
 
 # 3. Install the plugin from the marketplace
 /plugin install antigravity-skills@antigravity-skills
