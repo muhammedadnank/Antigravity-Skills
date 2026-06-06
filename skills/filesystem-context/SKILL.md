@@ -1,8 +1,7 @@
 ---
 name: filesystem-context
-description: This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.
+description: 'This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.'
 ---
-
 # Filesystem-Based Context Engineering
 
 Use the filesystem as the primary overflow layer for agent context because context windows are limited while tasks often require more information than fits in a single window. Files let agents store, retrieve, and update an effectively unlimited amount of context through a single interface.

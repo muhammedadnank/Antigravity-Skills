@@ -1,18 +1,13 @@
 ---
-name: stitch::upload-to-stitch
-description: >-
-  Upload local assets (images, mockups, extracted HTML) to a Stitch project.
-  ALWAYS use this skill when you need to upload visual assets or full HTML pages
-  to Stitch, particularly when direct MCP tool calls fail or truncate due to
-  base64 token limits.
+name: upload-to-stitch
+description: Upload local assets (images, mockups, extracted HTML) to a Stitch project. ALWAYS use this skill when you need to upload visual assets or full HTML pages to Stitch, particularly when direct MCP tool calls fail or truncate due to base64 token limits.
 allowed-tools:
-  - "stitch*:*"
-  - "Bash"
-  - "Read"
-  - "Write"
-  - "web_fetch"
+- stitch*:*
+- Bash
+- Read
+- Write
+- web_fetch
 ---
-
 # Upload-to-Stitch
 
 Upload local assets (images, mockups, HTML files) to a Stitch project using the

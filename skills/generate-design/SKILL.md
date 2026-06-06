@@ -1,18 +1,13 @@
 ---
-name: stitch::generate-design
-description: >-
-  Generate new screens from text prompts or images, edit existing screens
-  with prompts and design system tokens, and generate design variants using
-  Stitch MCP. Includes prompt enhancement pipeline, design mappings, professional
-  UI/UX terminology, design tokens and theme system capabilities.
+name: generate-design
+description: Generate new screens from text prompts or images, edit existing screens with prompts and design system tokens, and generate design variants using Stitch MCP. Includes prompt enhancement pipeline, design mappings, professional UI/UX terminology, design tokens and theme system capabilities.
 allowed-tools:
-  - "stitch*:*"
-  - "Bash"
-  - "Read"
-  - "Write"
-  - "web_fetch"
+- stitch*:*
+- Bash
+- Read
+- Write
+- web_fetch
 ---
-
 # Generate Design
 
 Create new design screens from text descriptions, images, or mockups, edit

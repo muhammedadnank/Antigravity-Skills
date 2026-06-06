@@ -1,8 +1,7 @@
 ---
 name: evaluation
-description: This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.
+description: 'This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines.'
 ---
-
 # Evaluation Methods for Agent Systems
 
 Evaluate agent systems differently from traditional software because agents make dynamic decisions, are non-deterministic between runs, and often lack single correct answers. Build evaluation frameworks that account for these characteristics, provide actionable feedback, catch regressions, and validate that context engineering choices achieve intended effects.

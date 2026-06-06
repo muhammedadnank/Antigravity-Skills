@@ -1,12 +1,11 @@
 ---
-name: calc
-description: "Spreadsheet creation, format conversion (ODS/XLSX/CSV), formulas, data automation with LibreOffice Calc."
+name: libreoffice-calc
+description: Spreadsheet creation, format conversion (ODS/XLSX/CSV), formulas, data automation with LibreOffice Calc.
 category: spreadsheet-processing
 risk: safe
 source: personal
-date_added: "2026-02-27"
+date_added: '2026-02-27'
 ---
-
 # LibreOffice Calc
 
 ## Overview

@@ -1,8 +1,7 @@
 ---
 name: harness-engineering
-description: This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.
+description: 'This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.'
 ---
-
 # Harness Engineering
 
 Harness engineering designs the control system around an agent: what it may edit, how it receives feedback, where it writes state, how failures recover, and who can approve irreversible actions. The harness is the difference between a helpful agent session and an autonomous loop that can run for days without corrupting its objective.

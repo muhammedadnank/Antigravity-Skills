@@ -1,11 +1,10 @@
 ---
-name: game-audio
-description: "Game audio principles. Sound design, music integration, adaptive audio systems."
+name: game-development-game-audio
+description: Game audio principles. Sound design, music integration, adaptive audio systems.
 risk: unknown
 source: community
-date_added: "2026-02-27"
+date_added: '2026-02-27'
 ---
-
 # Game Audio Principles
 
 > Sound design and music integration for immersive game experiences.

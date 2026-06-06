@@ -1,20 +1,29 @@
 ---
-name: sendblue-notify
-description: "Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire."
+name: sendblue-sendblue-notify
+description: "Text the user's phone when a long-running task, agent turn, or scheduled job finishes \u2014 via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire."
 category: automation
 risk: critical
 source: community
 source_type: official
-date_added: "2026-05-22"
+date_added: '2026-05-22'
 author: AnthonyFirth
-tags: [sendblue, imessage, sms, notifications, hooks, claude-code, automation]
-tools: [claude, cursor, gemini]
+tags:
+- sendblue
+- imessage
+- sms
+- notifications
+- hooks
+- claude-code
+- automation
+tools:
+- claude
+- cursor
+- gemini
 plugin:
   targets:
     codex: blocked
     claude: blocked
 ---
-
 # Sendblue Notify
 
 ## Overview

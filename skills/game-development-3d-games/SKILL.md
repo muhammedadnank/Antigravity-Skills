@@ -1,11 +1,10 @@
 ---
-name: 3d-games
-description: "3D game development principles. Rendering, shaders, physics, cameras."
+name: game-development-3d-games
+description: 3D game development principles. Rendering, shaders, physics, cameras.
 risk: unknown
 source: community
-date_added: "2026-02-27"
+date_added: '2026-02-27'
 ---
-
 # 3D Game Development
 
 > Principles for 3D game systems.

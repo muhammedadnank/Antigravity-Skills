@@ -1,23 +1,33 @@
 ---
-name: textme
-description: "Text Claude from your phone — set up the njerschow/textme daemon so inbound iMessages drive a Claude Code session on your laptop, with voice notes, image input, code execution, and a phone-number whitelist."
+name: sendblue-textme
+description: "Text Claude from your phone \u2014 set up the njerschow/textme daemon so inbound iMessages drive a Claude Code session on your laptop, with voice notes, image input, code execution, and a phone-number whitelist."
 category: automation
 risk: critical
 source: community
 source_repo: njerschow/textme
 source_type: community
-date_added: "2026-05-26"
+date_added: '2026-05-26'
 author: AnthonyFirth
-tags: [textme, sendblue, imessage, sms, claude-code, daemon, remote-control, automation]
-tools: [claude, cursor, gemini]
-license: "MIT"
-license_source: "https://github.com/njerschow/textme/blob/main/LICENSE"
+tags:
+- textme
+- sendblue
+- imessage
+- sms
+- claude-code
+- daemon
+- remote-control
+- automation
+tools:
+- claude
+- cursor
+- gemini
+license: MIT
+license_source: https://github.com/njerschow/textme/blob/main/LICENSE
 plugin:
   targets:
     codex: blocked
     claude: blocked
 ---
-
 # TextMe
 
 ## Overview

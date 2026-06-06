@@ -1,11 +1,10 @@
 ---
-name: game-design
-description: "Game design principles. GDD structure, balancing, player psychology, progression."
+name: game-development-game-design
+description: Game design principles. GDD structure, balancing, player psychology, progression.
 risk: unknown
 source: community
-date_added: "2026-02-27"
+date_added: '2026-02-27'
 ---
-
 # Game Design Principles
 
 > Design thinking for engaging games.

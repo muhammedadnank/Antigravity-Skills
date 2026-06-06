@@ -1,23 +1,31 @@
 ---
-name: sendblue-cli
-description: "Send iMessage and SMS from the shell via the @sendblue/cli npm package — outbound sends, contact management, and account setup with no API client or webhook server required."
+name: sendblue-sendblue-cli
+description: "Send iMessage and SMS from the shell via the @sendblue/cli npm package \u2014 outbound sends, contact management, and account setup with no API client or webhook server required."
 category: api-integration
 risk: critical
 source: community
 source_repo: sendblue-api/sendblue-cli
 source_type: official
-date_added: "2026-05-22"
+date_added: '2026-05-22'
 author: AnthonyFirth
-tags: [sendblue, imessage, sms, cli, messaging, notifications]
-tools: [claude, cursor, gemini]
-license: "MIT"
-license_source: "https://github.com/sendblue-api/sendblue-cli/blob/main/LICENSE"
+tags:
+- sendblue
+- imessage
+- sms
+- cli
+- messaging
+- notifications
+tools:
+- claude
+- cursor
+- gemini
+license: MIT
+license_source: https://github.com/sendblue-api/sendblue-cli/blob/main/LICENSE
 plugin:
   targets:
     codex: blocked
     claude: blocked
 ---
-
 # Sendblue CLI
 
 ## Overview

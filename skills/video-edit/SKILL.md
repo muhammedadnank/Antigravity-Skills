@@ -1,8 +1,7 @@
 ---
 name: video-edit
-description: Edit any video into a captioned showcase — transcribe (any language, defaults to large-v3), present a transcript_review.txt for the user to fix mishears BEFORE rendering, then build a HyperFrames composition with liquid-glass caption pills, liquid blob background, liquid morph wipes, optional behind-subject text via background removal, and render the final video. Use whenever the user provides a video file and asks to edit it, caption it, add subtitles, fix existing captions, make a reel/promo/captioned tutorial, or "do the same" pattern as a prior captioned video. Supports English, Hebrew, and any Whisper-supported language. **Renders both 16:9 (YouTube / horizontal) and 9:16 (TikTok / Instagram Reels / YouTube Shorts) from the SAME 16:9 source** — vertical mode uses a centered footage strip with a blurred backdrop + liquid blobs and a vertical-tuned caption pill, no need to re-shoot. THE PIPELINE PAUSES FOR USER APPROVAL on the transcript before final render — this is the support mechanism for getting captions perfect (especially Hebrew). Pairs with hyperframes, hyperframes-cli, hyperframes-registry, and yuv-design-system skills.
+description: Edit any video into a captioned showcase. Transcribe, present a review screen for the user to fix mishears, then build a HyperFrames composition with liquid-glass caption pills, background removal, and render the final video. Renders both 16:9 and 9:16 vertical modes from the same source. Pauses for user approval on the transcript before final render. Pairs with hyperframes, hyperframes-cli, and yuv-design-system.
 ---
-
 # Video Edit — Captioned Showcase Pipeline
 
 End-to-end captioned video editor on top of HyperFrames. The user gives you a video; you orchestrate transcribe → review → render and ALWAYS pause for transcript approval before the long render.
